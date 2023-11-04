@@ -1,0 +1,58 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시물 작성</title>
+</head>
+<body>
+
+
+<form method="post">
+
+<label>제목</label>
+<input type="text" name="title" /><br />
+
+<label>작성자</label>
+<input type="text" name="writer" /><br />
+
+<label>내용</label>
+<textarea cols="50" rows="5" name="content"></textarea><br />
+
+<button type="submit">작성</button>
+
+</form>
+
+		</body>	
+		
+		<div class="form-group">
+<label for="noticeYn" >공지글 설정</label>
+<input type="checkbox" th:value="*{noticeYn}" id="noticeYn" name="noticeYn" th:checked="*{#strings.equals( noticeYn, 'Y' )}" />
+</div>
+
+<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+
+			function write(form) {
+
+				form.noticeYn.value = form.noticeYn.checked == false ? 'N' : 'Y';
+			
+
+				var result = (
+						   isValid(form.title, "제목", null, null)
+						&& isValid(form.writer, "이름", null, null)
+						&& isValid(form.content, "내용", null, null)
+				);
+
+				if ( result == false ) {
+					return false;
+				}
+			}
+			/*[- end of function -]*/
+
+			/*]]>*/
+		</script>
+	</th:block>
+</html>

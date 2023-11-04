@@ -1,0 +1,13 @@
+127.0.0.1 - - [14/May/2021:18:14:22 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:22 +0900] "GET /controller/ HTTP/1.1" 200 557
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:22 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:50 +0900] "POST /controller/member/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:50 +0900] "GET /controller/board/list?num=1 HTTP/1.1" 200 4734
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:53 +0900] "GET /controller/board/list?num=6 HTTP/1.1" 200 4478
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:55 +0900] "GET /controller/board/list?num=11 HTTP/1.1" 200 3915
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:56 +0900] "GET /controller/board/list?num=15 HTTP/1.1" 200 3918
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:57 +0900] "GET /controller/board/list?num=14 HTTP/1.1" 200 3892
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:14:57 +0900] "GET /controller/board/list?num=13 HTTP/1.1" 200 3904
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:15:02 +0900] "GET /controller/board/view?bo_num=58 HTTP/1.1" 200 1454
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:15:09 +0900] "POST /controller/reply/write HTTP/1.1" 500 15115
+0:0:0:0:0:0:0:1 - - [14/May/2021:18:15:19 +0900] "POST /controller/reply/write HTTP/1.1" 500 15119

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.mappers.reply">
+	
+	<!-- 댓글 조회 -->
+	<select id="replyList" parameterType="int" resultType="com.board.domain.ReplyVO">
+ 		select 
+  			a.re_num, b.BO_NUM , c.USER_NAME ,a.title, a.content, a.REG_DATE 
+ 		from reply a 
+ 			JOIN board b ON a.bo_num = b.bo_num
+ 			JOIN MEMBER c on a.MEM_NUM = c.MEM_NUM 
+  		where 
+  			b.BO_NUM = #{bo_num}  
+	</select>
+	
+	<!-- 댓글 상세 조회 -->
+	<select id="replyView" resultType="com.board.domain.ReplyVO">
+ 		select 
+  			a.re_num, b.BO_NUM , c.USER_NAME ,a.title, a.content, a.REG_DATE 
+ 		from reply a 
+ 			JOIN board b ON a.bo_num = b.bo_num
+ 			JOIN MEMBER c on a.MEM_NUM = c.MEM_NUM 
+  		where 
+  			a.re_num = #{re_num}  
+	</select>
+	
+	<!-- 댓글 갯수 -->
+	<select id="count" resultType="int">
+		SELECT count(*) FROM reply WHERE bo_num = #{bo_num}
+	</select>
+
+	<!-- 댓글 작성 -->
+	<insert id="replyWrite" parameterType="com.board.domain.ReplyVO">
+ 		insert into
+  			reply(title, content, bo_num, mem_num)
+   		values(#{title}, #{content}, #{bo_num}, #{mem_num})
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="replyModify" parameterType="com.board.domain.ReplyVO">
+ 		 update reply
+ 		 	set 
+  				title = #{title},
+  				content = #{content}
+ 		 	where                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  				re_num = #{re_num}  
+	</update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="replyDelete" parameterType="int">
+ 		delete from 
+  			reply
+ 		where 
+ 			re_num = #{re_num}
+ 	</delete>
+</mapper>
